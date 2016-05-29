@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/mhazy/hapi-github-webhooks.svg?branch=master)](https://travis-ci.org/mhazy/hapi-github-webhooks)
 
-A authentication strategy plugin for validating webhook requests from GitHub. This strategy validates the payload with the hmac-sha1 signature sent with the request.
+An authentication strategy plugin for [hapi](https://github.com/hapijs/hapi) for validating webhook requests from GitHub. This strategy validates the payload with the hmac-sha1 signature sent with the request.
 
 The `'githubwebhook'` scheme takes the following options:
 - `secret` - (required) the token configured for the webhook (never share or commit this to your project!)
