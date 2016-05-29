@@ -1,9 +1,42 @@
 # hapi-github-webooks
 
 ## Description
+A authentication strategy plugin for validating webhook requests from GitHub.
 
-A authentication strategy plugin for validating webhook requests from GitHub. 
+Basic authentication requires validating a username and password combination. The `'githubwebhook'` scheme takes the following options:
+- `secret` - (required) the token configured for the webhook (never share or commit this to your project!)
 
 ## Usage
+```javascript
+var hapi = require('hapi');
+var githubWebhooksPlugin = require('hapi-github-webooks');
+var token = 'SomeUnsharedSecretToken';
+var server = new hapi.Server();
 
-TBD
+server.connection({
+    host: host,
+    port: port
+});
+
+server.register(githubWebhooksPlugin, function (err) {
+  // Register github webhook auth strategy
+  server.auth.strategy('githubwebhook', 'githubwebhook', { secret: token});
+  // Apply the strategy to the route that handles webhooks
+  server.route([
+    {
+      method: 'POST',
+      path: '/webhooks/github',
+      config: {
+          auth: {
+              strategies: ["githubwebhook"],
+              payload: 'required'
+          }
+      },
+      handler: function(request, reply) {
+        // request.payload is the validated payload from GitHub
+        reply();
+      }
+    }
+  ]);
+});
+```
