@@ -8,6 +8,7 @@
     "api",
     "webhooks"
   ],
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/mhazy/hapi-github-webhooks"
