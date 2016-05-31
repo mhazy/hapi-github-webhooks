@@ -9,7 +9,6 @@ describe('github webhook handler', () => {
     before(() => {
         testServer = server.createServer(secret);
     });
-    // Missing header should fail before payload
     it('should be unauthorized when signature header is missing', (done) => {
         const options = {
             method: "POST",
@@ -40,7 +39,6 @@ describe('github webhook handler', () => {
             message: 'This message is valid!'
         });
         const signature  = hmac.create(secret, payload);
-
         const options = {
             method: "POST",
             url: "/webhooks/github",
