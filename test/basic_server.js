@@ -12,8 +12,8 @@ const createServer = (secret) => {
     server.connection();
 
     server.register(hapiGithubWebhook, function (err) {
-        if(err){
-            console.log(err);
+        if (err) {
+            throw err;
         }
         // Add the scheme and apply it to the URL
         server.auth.strategy('githubwebhook', 'githubwebhook', { secret: secret});
