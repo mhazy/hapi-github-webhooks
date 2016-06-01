@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Change signature check to use a constant time based equality check (see: https://codahale.com/a-lesson-in-timing-attacks/)
-- Package had older version fo README
+- Package had older version of README
 
 ## 1.0.0 - 2016-05-30
 ### Release
