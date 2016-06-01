@@ -2,7 +2,9 @@
 
 ## Description
 
+[![npm version][npm-badge]][npm-url]
 [![Build Status](https://travis-ci.org/mhazy/hapi-github-webhooks.svg?branch=master)](https://travis-ci.org/mhazy/hapi-github-webhooks)
+[![Dependency Status](https://david-dm.org/mhazy/hapi-github-webhooks.svg)](https://david-dm.org/mhazy/hapi-github-webhooks)
 
 An authentication strategy plugin for [hapi](https://github.com/hapijs/hapi) for validating webhook requests from GitHub. This strategy validates the payload with the hmac-sha1 signature sent with the request.
 

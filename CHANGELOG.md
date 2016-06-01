@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.1 - 2016-05-31
 ### Added
 - This change log
+- Dependency checks and npm badges
 
 ### Changed
 - Change signature check to use a constant time based equality check (see: https://codahale.com/a-lesson-in-timing-attacks/)
