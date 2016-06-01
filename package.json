@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "boom": "3.2.1",
-    "buffer-equal-constant-time": "^1.0.1",
+    "buffer-equal-constant-time": "1.0.1",
     "joi": "8.3.0"
   },
   "peerDependencies": {
