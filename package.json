@@ -22,6 +22,7 @@
   "authors": [
     "Mark Hayes <mark.hayes@rangle.io> (https://github.com/mhazy)"
   ],
+  "license": "MIT",
   "dependencies": {
     "boom": "3.2.1",
     "buffer-equal-constant-time": "1.0.1",
