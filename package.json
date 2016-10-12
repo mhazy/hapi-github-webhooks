@@ -1,6 +1,6 @@
 {
   "name": "hapi-github-webhooks",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A Hapi plugin for receiving requests from the GitHub webhooks API.",
   "keywords": [
     "hapi",
