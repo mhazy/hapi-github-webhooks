@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.2 - 2016-10-11
+### Fixes
+- Correctly use 'utf-8' instead of default, 'binary', for HMAC signature, thanks [stjohnjohnson](https://github.com/stjohnjohnson)
+
 ## 1.0.1 - 2016-05-31
 ### Added
 - This change log
