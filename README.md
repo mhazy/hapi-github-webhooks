@@ -1,4 +1,4 @@
-# hapi-github-webooks
+# hapi-github-webhooks
 
 ## Description
 
@@ -14,7 +14,7 @@ The `'githubwebhook'` scheme takes the following options:
 ## Usage
 ```javascript
 var hapi = require('hapi');
-var githubWebhooksPlugin = require('hapi-github-webooks');
+var githubWebhooksPlugin = require('hapi-github-webhooks');
 var token = 'SomeUnsharedSecretToken';
 var server = new hapi.Server();
 
