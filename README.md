@@ -33,7 +33,7 @@ server.register(githubWebhooksPlugin, function (err) {
       path: '/webhooks/github',
       config: {
           auth: {
-              strategies: ["githubwebhook"],
+              strategies: ['githubwebhook'],
               payload: 'required'
           }
       },
