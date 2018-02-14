@@ -3,43 +3,46 @@ const hapiGithubWebhook = require('../lib/');
 const port = process.env.PORT || 4005;
 const host = process.env.HOST || '0.0.0.0';
 const secret = process.env.SECRET || 'RandomSecretToken'; // Never Share This!
-const server = new Hapi.Server();
-
-server.connection({
+const server = new Hapi.Server({
     host: host,
     port: port
 });
 
-server.register(hapiGithubWebhook, function (err) {
-    if(err){
-        console.log(err);
-    }
-    // see: http://hapijs.com/api#serverauthschemename-scheme
-    server.auth.strategy('githubwebhook', 'githubwebhook', { secret: secret});
+const startServer = async () => {
+  try {
+      await server.register(hapiGithubWebhook);
 
-    server.route([
-        {
-            method: 'GET', path: '/', config: {},
-            handler: function(request, reply) {
-                reply('ok');
-            }
-        },
-        {
-            method: 'POST',
-            path: '/webhooks/github',
-            config: {
-                auth: {
-                    strategies: ["githubwebhook"],
-                    payload: 'required'
-                }
-            },
-            handler: function(request, reply) {
-                reply();
-            }
-        }
-    ]);
-});
+      // see: http://hapijs.com/api#serverauthschemename-scheme
+      server.auth.strategy('githubwebhook', 'githubwebhook', { secret: secret});
 
-server.start(function () {
-    console.log('Server running at:', server.info.uri);
-});
+      server.route([
+          {
+              method: 'GET',
+              path: '/',
+              config: {},
+              handler: async function () {
+                  return 'ok';
+              }
+          },
+          {
+              method: 'POST',
+              path: '/webhooks/github',
+              config: {
+                  auth: {
+                      strategies: ["githubwebhook"],
+                      payload: 'required'
+                  }
+              },
+              handler: async function() {
+                  return '';
+              }
+          }
+      ]);
+
+      await server.start();
+  } catch (err) {
+      console.log(err);
+  }
+};
+
+startServer().then(() => console.log('Server running at:', server.info.uri));

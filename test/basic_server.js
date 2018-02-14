@@ -7,32 +7,20 @@ const hapiGithubWebhook = require('../lib/');
  * @param secret
  * @returns {*}
  */
-const createServer = (secret) => {
-    const server = new Hapi.Server({ debug: false });
-    server.connection();
+const createServer = async (secret) => {
+    const server = new Hapi.Server({debug: false});
 
-    server.register(hapiGithubWebhook, function (err) {
-        if (err) {
-            throw err;
+    await server.register(hapiGithubWebhook);
+
+    server.auth.strategy('githubwebhook', 'githubwebhook', {secret: secret});
+    server.auth.default('githubwebhook');
+    server.route([{
+        method: 'POST',
+        path: '/webhooks/github',
+        handler: async function () {
+            return '';
         }
-        // Add the scheme and apply it to the URL
-        server.auth.strategy('githubwebhook', 'githubwebhook', { secret: secret});
-        server.route([
-            {
-                method: 'POST',
-                path: '/webhooks/github',
-                config: {
-                    auth: {
-                        strategies: ["githubwebhook"],
-                        payload: 'required'
-                    }
-                },
-                handler: function(request, reply) {
-                    reply();
-                }
-            }
-        ]);
-    });
+    }]);
 
     return server;
 };

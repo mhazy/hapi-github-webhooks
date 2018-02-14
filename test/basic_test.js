@@ -6,21 +6,20 @@ const hmac = require('../lib/hmac');
 let testServer;
 
 describe('github webhook handler', () => {
-    before(() => {
-        testServer = server.createServer(secret);
+    before(async () => {
+        testServer = await server.createServer(secret);
     });
-    it('should be unauthorized when signature header is missing', (done) => {
+    it('should be unauthorized when signature header is missing', async () => {
         const options = {
             method: "POST",
             url: "/webhooks/github"
         };
-        testServer.inject(options, function(response) {
+        return testServer.inject(options).then(function(response) {
             expect(response.statusCode).to.equal(401, 'server responded with 401');
             expect(response.result.message).to.equal('Invalid signature');
-            done();
         });
     });
-    it('should be unauthorized when signature is not valid', (done) => {
+    it('should be unauthorized when signature is not valid', async () => {
         const options = {
             method: "POST",
             url: "/webhooks/github",
@@ -28,13 +27,12 @@ describe('github webhook handler', () => {
                 'X-Hub-Signature': 'invalid'
             }
         };
-        testServer.inject(options, function(response) {
+        return testServer.inject(options).then(function(response) {
             expect(response.statusCode).to.equal(401, 'server responded with 401');
             expect(response.result.message).to.equal('Invalid signature');
-            done();
         });
     });
-    it('should return a status of 200 if the signature is valid', (done) => {
+    it('should return a status of 200 if the signature is valid', () => {
         const payload = JSON.stringify({
             message: 'This message is valid!'
         });
@@ -49,12 +47,12 @@ describe('github webhook handler', () => {
             payload: payload
         };
 
-        testServer.inject(options, function(response) {
+        return testServer.inject(options).then(function(response) {
+            console.log(response.result);
             expect(response.statusCode).to.equal(200, 'server responded with non-200 response');
-            done();
         });
     });
-    it('should return a status of 200 if the signature is valid and contains utf-8', (done) => {
+    it('should return a status of 200 if the signature is valid and contains utf-8', async () => {
         const payload = JSON.stringify({
             message: 'This message is valid! ⚠️'
         });
@@ -69,9 +67,8 @@ describe('github webhook handler', () => {
             payload: payload
         };
 
-        testServer.inject(options, function(response) {
+        return testServer.inject(options).then(function(response) {
             expect(response.statusCode).to.equal(200, 'server responded with non-200 response');
-            done();
         });
     });
 });
