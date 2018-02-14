@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 2.0 - 2018-02-14
 
-* Updated to work with Hapi v17 (Thanks travi!)
+* Updated to work with Hapi v17 (Thanks [travi](https://github.com/travi)!)
 * Rollup for builds
 
 ## 1.0.3 - 2016-10-11
