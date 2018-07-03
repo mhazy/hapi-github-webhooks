@@ -8,7 +8,7 @@
 
 An authentication strategy plugin for [hapi](https://github.com/hapijs/hapi) for validating webhook requests from GitHub. This strategy validates the payload with the hmac-sha1 signature sent with the request.
 
-This strategy is currently only compatible with `application/json` webhook payloads.
+This strategy is compatible with `application/json` webhook payloads.
 
 The `'githubwebhook'` scheme takes the following options:
 
