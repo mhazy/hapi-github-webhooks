@@ -17,6 +17,7 @@
   "scripts": {
     "clean": "rimraf dist/",
     "compile": "npm run clean && rollup -c",
+    "example": "./node_modules/.bin/babel-node ./example/server.js",
     "prepublishOnly": "npm run compile",
     "start": "node example/server.js",
     "test": "./node_modules/.bin/mocha --reporter spec -r chai"
@@ -35,6 +36,7 @@
     "hapi": ">=17.x.x"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "chai": "3.5.0",
