@@ -8,6 +8,8 @@
 
 An authentication strategy plugin for [hapi](https://github.com/hapijs/hapi) for validating webhook requests from GitHub. This strategy validates the payload with the hmac-sha1 signature sent with the request.
 
+This strategy is compatible with `application/json` webhook payloads.
+
 The `'githubwebhook'` scheme takes the following options:
 
 * `secret` - (required) the token configured for the webhook (never share or commit this to your project!)
@@ -18,6 +20,10 @@ The `'githubwebhook'` scheme takes the following options:
 * <= v16: Use 1.x
 
 Version 1.0
+
+## Example
+
+There is an example server located in `example/server.js`. You can run this server with `npm run example`.
 
 ## Usage
 

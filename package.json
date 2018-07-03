@@ -15,8 +15,10 @@
     "url": "http://github.com/mhazy/hapi-github-webhooks"
   },
   "scripts": {
-    "compile": "rollup -c",
-    "prepublish": "npm run compile",
+    "clean": "rimraf dist/",
+    "compile": "npm run clean && rollup -c",
+    "example": "./node_modules/.bin/babel-node ./example/server.js",
+    "prepublishOnly": "npm run compile",
     "start": "node example/server.js",
     "test": "./node_modules/.bin/mocha --reporter spec -r chai"
   },
@@ -27,17 +29,20 @@
   "dependencies": {
     "boom": "3.2.1",
     "buffer-equal-constant-time": "1.0.1",
-    "joi": "8.4.0"
+    "joi": "8.4.0",
+    "rollup-plugin-json": "^2.3.1"
   },
   "peerDependencies": {
     "hapi": ">=17.x.x"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "chai": "3.5.0",
-    "hapi": "17.x.x",
+    "hapi": "^17.5.1",
     "mocha": "2.5.3",
+    "rimraf": "^2.6.2",
     "rollup": "0.55.3",
     "rollup-plugin-babel": "3.0.3"
   }
