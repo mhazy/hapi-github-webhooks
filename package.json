@@ -15,8 +15,9 @@
     "url": "http://github.com/mhazy/hapi-github-webhooks"
   },
   "scripts": {
-    "compile": "rollup -c",
-    "prepublish": "npm run compile",
+    "clean": "rimraf dist/",
+    "compile": "npm run clean && rollup -c",
+    "prepublishOnly": "npm run compile",
     "start": "node example/server.js",
     "test": "./node_modules/.bin/mocha --reporter spec -r chai"
   },
@@ -39,6 +40,7 @@
     "chai": "3.5.0",
     "hapi": "^17.5.1",
     "mocha": "2.5.3",
+    "rimraf": "^2.6.2",
     "rollup": "0.55.3",
     "rollup-plugin-babel": "3.0.3"
   }

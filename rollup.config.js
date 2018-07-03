@@ -2,7 +2,7 @@ import babel from "rollup-plugin-babel";
 import json from "rollup-plugin-json";
 export default {
   input: "lib/index.js",
-  external: ["joi", "boom"],
+  external: ["joi", "boom", "assert", "crypto", "buffer-equal-constant-time"],
   plugins: [
     babel({
       babelrc: false,
