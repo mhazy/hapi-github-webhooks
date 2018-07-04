@@ -1,5 +1,5 @@
 const Hapi = require('hapi');
-const hapiGithubWebhook = require('../lib/');
+const hapiGithubWebhook = require('hapi-github-webhooks');
 const port = process.env.PORT || 4005;
 const host = process.env.HOST || '0.0.0.0';
 const secret = process.env.SECRET || 'RandomSecretToken'; // Never Share This!
