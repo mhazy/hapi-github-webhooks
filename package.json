@@ -23,7 +23,8 @@
     "test": "./node_modules/.bin/mocha --reporter spec -r chai"
   },
   "authors": [
-    "Mark Hayes <mark.hayes@rangle.io> (https://github.com/mhazy)"
+    "Mark Hayes <mark.hayes@rangle.io> (https://github.com/mhazy)",
+    "Matt Travi (https://github.com/travi)"
   ],
   "license": "MIT",
   "dependencies": {
