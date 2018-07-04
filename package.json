@@ -30,8 +30,7 @@
   "dependencies": {
     "boom": "3.2.1",
     "buffer-equal-constant-time": "1.0.1",
-    "joi": "8.4.0",
-    "rollup-plugin-json": "^2.3.1"
+    "joi": "8.4.0"
   },
   "peerDependencies": {
     "hapi": ">=17.x.x"
@@ -45,6 +44,7 @@
     "mocha": "2.5.3",
     "rimraf": "^2.6.2",
     "rollup": "0.55.3",
-    "rollup-plugin-babel": "3.0.3"
+    "rollup-plugin-babel": "3.0.3",
+    "rollup-plugin-json": "^2.3.1"
   }
 }
