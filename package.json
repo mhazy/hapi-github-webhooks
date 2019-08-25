@@ -33,14 +33,14 @@
     "joi": "8.4.0"
   },
   "peerDependencies": {
-    "hapi": ">=17.x.x"
+    "@hapi/hapi": ">=18.x.x"
   },
   "devDependencies": {
+    "@hapi/hapi": "^18.4.0",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-preset-env": "1.6.1",
     "chai": "3.5.0",
-    "hapi": "^17.5.1",
     "mocha": "2.5.3",
     "rimraf": "^2.6.2",
     "rollup": "0.55.3",
